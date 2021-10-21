@@ -42,7 +42,19 @@ library(palmerpenguins)
 ## basic example code
 
 ggplot(penguins, aes(bill_depth_mm, bill_length_mm, color = species)) +
-  geom_point() +
-  scale_color_pentagon_d()
+  geom_point( size = 3 ) +
+  theme_bw()+
+  scale_color_pentagon_d() +
+  ggtitle("Example of Discrete Scale")
 
 ```
+```{r}
+penguins %>% filter(species == "Adelie") %>%
+ggplot(aes(flipper_length_mm, body_mass_g, color = bill_depth_mm)) +
+  geom_point( size = 3 ) +
+  theme_bw()+
+  scale_color_pentagon_seq_c() +
+  ggtitle("Example of Continous Scale")
+
+```
+

@@ -32,7 +32,7 @@ remotes::install_github("etc5523-2021/r-package-takehome-pjai0005")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example, eval=FALSE}
+```{r example}
 
 library(dye)
 library(tidyverse)
@@ -47,13 +47,35 @@ ggplot(penguins, aes(bill_depth_mm, bill_length_mm, color = species)) +
   scale_color_pentagon_d() +
   ggtitle("Example of Discrete Scale")
 
+ggplot(penguins, aes(bill_depth_mm, bill_length_mm, color = species)) +
+  geom_point( size = 3 ) +
+  theme_bw()+
+  scale_colour_pentagon_d() +
+  ggtitle("Example of Discrete Scale")
+
 ```
+```{r}
+ggplot(penguins, aes(island, fill = species)) +
+  geom_bar() +
+  theme_bw()+
+  scale_fill_pentagon_d(direction = 1) +
+  ggtitle("Example of Discrete Scale (Fill)")
+```
+
+
 ```{r}
 penguins %>% filter(species == "Adelie") %>%
 ggplot(aes(flipper_length_mm, body_mass_g, color = bill_depth_mm)) +
   geom_point( size = 3 ) +
   theme_bw()+
   scale_color_pentagon_seq_c() +
+  ggtitle("Example of Continous Scale")
+
+penguins %>% filter(species == "Adelie") %>%
+ggplot(aes(flipper_length_mm, body_mass_g, color = bill_depth_mm)) +
+  geom_point( size = 3 ) +
+  theme_bw()+
+  scale_colour_pentagon_seq_c() +
   ggtitle("Example of Continous Scale")
 
 ```

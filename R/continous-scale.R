@@ -2,7 +2,7 @@
 
 scale_colour_candy_seq_c <- function(name, direction = 1, amount = 0.2, ...) {
   # check that name is in your palette
-  if(name == "Azalea" |
+  if(name == "Azalea" ||
      name == "Jungle Mist" |
      name == "Zombie" |
      name == "Chatelle" |

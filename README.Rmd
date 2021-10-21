@@ -25,7 +25,7 @@ The goal of packageName is to ...
 You can install the development version of packageName with ...
 
 ```{r install, eval = FALSE}
-remotes::install_github("user/repo")
+remotes::install_github("etc5523-2021/r-package-takehome-pjai0005")
 ```
 
 ## Example
@@ -33,6 +33,16 @@ remotes::install_github("user/repo")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example, eval=FALSE}
-library(packageName)
+
+library(dye)
+library(tidyverse)
+library(ggplot2)
+library(palmerpenguins)
+
 ## basic example code
+
+ggplot(penguins, aes(bill_depth_mm, bill_length_mm, color = species)) +
+  geom_point() +
+  scale_color_pentagon_d()
+
 ```

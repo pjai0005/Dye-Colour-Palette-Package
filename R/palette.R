@@ -1,3 +1,22 @@
+#' @title Pentagon Color Palette:
+#'
+#' \code{pentagon_palette} uses the custom color palette to be used wuth ggplot2 to generate the colors for discrete variables with maximum of 5 categories.
+#'
+#'
+#'
+#' @section Arguments:
+#' @section primary the baseline color for continuos scale
+#' @param direction: a numeric value to set the direction of the color scale \newline if direction is < 0 the color list is reversed
+#'
+#' @details Default colors are generated using this branded palette.
+#' @seealso \code{\link{pentagon_palette}} \code{\link[ggplot2]{discrete_scale}} \code{\link[ggplot2]{scale_colour_pentagon_seq_c}}
+#'
+#'
+#'
+#' @export pentagon_palette
+#'
+#'
+
 # Define colour palette variables and functions here
 
 pentagon_colours <- list(

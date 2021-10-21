@@ -1,9 +1,9 @@
-#' @title Color Scales for Discrete Variables:
+#' @title Colour Scale Fill for Discrete Variables :
 #'
-#' \code{scale_colour_pentagon_d } is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic. It chooses the branded palette and the level of the color scale can be changed using the \param{direction}.
+#' \code{scale_fill_pentagon_d } is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic. It chooses the branded palette and the level of the color scale can be changed using the \param{direction}.
 #'
 #' @section Usage
-#' scale_colour_pentagon_d (
+#' scale_fill_pentagon_d (
 #' ...,
 #' direction=1,
 #' amount=0.2)
@@ -29,28 +29,24 @@
 #' # For coloring the based on continuous variable
 #' ggplot(df, aes(x, y)) +
 #'   geom_point(aes(colour = z1)) +
-#'     scale_colour_pentagon_d ()
+#'     scale_fill_pentagon_d ()
 #'
 #' # For coloring the based on continuous variable on a reverse scale
 #' ggplot(df, aes(x, y)) +
 #'   geom_point(aes(colour = z1)) +
-#'     scale_colour_pentagon_d (direction=-1)
+#'     scale_fill_pentagon_d (direction=-1)
 #'
-#' @export scale_colour_pentagon_d
-#'
+#' @export scale_fill_pentagon_d
 
+# This is where your fill ggplot palettes would go
 
-# This is where your discrete ggplot palettes would go
-
-scale_colour_pentagon_d <- function(primary = "Punky Orange",
-                                    other = "Mulberry Wine",
-                                    direction = 1, ...)
-  {
-  ggplot2::discrete_scale("colour", "pentagon",
+scale_fill_pentagon_d <- function(primary = "Punky Orange",
+                                  other = "Mulberry Wine",
+                                  direction = 1, ...)
+{
+  ggplot2::discrete_scale("fill", "pentagon",
                           pentagon_palette(primary,
                                            other,
                                            direction),
                           ...)
 }
-
-scale_color_pentagon_d <- scale_colour_pentagon_d

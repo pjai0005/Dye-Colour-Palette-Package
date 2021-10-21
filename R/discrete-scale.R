@@ -7,7 +7,7 @@ scale_colour_candy_d <- function(direction = 1, ...) {
   )
 }
 
-scale_fill_NAME_d <- function(direction = 1, ...) {
+scale_fill_candy_d <- function(direction = 1, ...) {
   ggplot2::discrete_scale("fill", "candy",
                           candy_palette(direction),
                           ...

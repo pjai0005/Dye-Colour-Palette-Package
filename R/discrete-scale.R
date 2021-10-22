@@ -1,40 +1,48 @@
 #' @title Color Scales for Discrete Variables:
 #'
-#' \code{scale_colour_pentagon_d } is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic. It chooses the branded palette and the level of the color scale can be changed using the \param{direction}.
+#' \code{scale_colour_pentagon_d }
 #'
-#' @section Usage
+#' @description It is a color scales used with ggplot2 for discrete data values mapped on the color aesthetic of Visualization in R. It chooses the Pentagon Palette which consists of 5 colors:
+#' \describe{
+#'   \item{Punky Orange}
+#'   \item{Gold Yellow}
+#'   \item{Dusty Green}
+#'   \item{Indigo Blue}
+#'   \item{Mulberry Wine}
+#'
+#'   }
+#'   The level of the color scale can be changed using the \code{direction}.
+#'
+#' @section Format
 #' scale_colour_pentagon_d (
 #' ...,
-#' direction=1,
-#' amount=0.2)
+#' primary = "Punky Orange",
+#' other = "Mulberry Wine",
+#' direction=1)
 #'
-#' @section Arguments
-#' @param primary a character vector to choose a color from the palette
-#' @param direction: a numeric value to set the level of the scale \newline if direction is < 0 switch high and low
-#' @param other numeric values to set the variation in color between high and low scale
+#' @details
+
+#' @param primary a character vector to choose a color from the palette. The primary color's default value is Punky Orange}
+#' @param other a character vector to choose a color from the palette. The default value is Mulberry Wine}
+#' @param direction a numeric value to set the level of the scale. The default value is 1. If direction is < 0 , the palette switches from high and low}
+#' @param ... Other parameters that support the scale_colour_discrete function
 #'
-#' @details Default colours are generated with branded palette. Generally, for continuous colour scales you want to keep hue constant, but vary chroma and luminance.
-#' @seealso \code{\link[ggplot2]{scale_color_gradient}}
+#' @seealso \code{\link[ggplot2]{discrete_scale}}
+#'
 #' @examples
+#' # Data Used
+#' dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
 #'
-#' df <- data.frame(
-#' x = runif(100),
-#' y = runif(100),
-#' z1 = rnorm(100),
-#' z2 = abs(rnorm(100))
-#' )
+#' # Basic Code
+#' ggplot(dsamp, aes(carat, price)) +
+#'   geom_point(aes(colour = cut), size = 3)+
+#'   scale_color_pentagon_d()
 #'
+#' # Direction reversed
+#' ggplot(dsamp, aes(carat, price)) +
+#'   geom_point(aes(colour = cut), size = 3)+
+#'   scale_color_pentagon_d(direction = -1)
 #'
-#'
-#' # For coloring the based on continuous variable
-#' ggplot(df, aes(x, y)) +
-#'   geom_point(aes(colour = z1)) +
-#'     scale_colour_pentagon_d ()
-#'
-#' # For coloring the based on continuous variable on a reverse scale
-#' ggplot(df, aes(x, y)) +
-#'   geom_point(aes(colour = z1)) +
-#'     scale_colour_pentagon_d (direction=-1)
 #'
 #' @export scale_colour_pentagon_d
 #'
@@ -49,8 +57,7 @@ scale_colour_pentagon_d <- function(primary = "Punky Orange",
   ggplot2::discrete_scale("colour", "pentagon",
                           pentagon_palette(primary,
                                            other,
-                                           direction),
+                                           direction = direction),
                           ...)
 }
 
-scale_color_pentagon_d <- scale_colour_pentagon_d

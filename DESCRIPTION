@@ -17,3 +17,7 @@ Imports:
     ggplot2
 Depends: 
     tidyverse
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr

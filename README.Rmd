@@ -45,21 +45,26 @@ ggplot(penguins, aes(bill_depth_mm, bill_length_mm, color = species)) +
   geom_point( size = 3 ) +
   theme_bw()+
   scale_color_pentagon_d() +
-  ggtitle("Example of Discrete Scale")
+  ggtitle("Example of Discrete Scale (Color)")
 
 ggplot(penguins, aes(bill_depth_mm, bill_length_mm, color = species)) +
   geom_point( size = 3 ) +
   theme_bw()+
-  scale_colour_pentagon_d() +
-  ggtitle("Example of Discrete Scale")
+  scale_colour_pentagon_d(direction = -1) +
+  ggtitle("Example of Discrete Scale (Colour)")
 
 ```
 ```{r}
 ggplot(penguins, aes(island, fill = species)) +
   geom_bar() +
   theme_bw()+
-  scale_fill_pentagon_d(direction = 1) +
+  scale_fill_pentagon_d() +
   ggtitle("Example of Discrete Scale (Fill)")
+
+ggplot(penguins, aes(island, fill = species)) +
+  geom_bar() +
+  theme_bw()+
+  scale_fill_pentagon_d(direction = -1) 
 ```
 
 
@@ -68,15 +73,16 @@ penguins %>% filter(species == "Adelie") %>%
 ggplot(aes(flipper_length_mm, body_mass_g, color = bill_depth_mm)) +
   geom_point( size = 3 ) +
   theme_bw()+
-  scale_color_pentagon_seq_c() +
-  ggtitle("Example of Continous Scale")
+  scale_color_pentagon_seq_c("Indigo Blue") +
+  ggtitle("Example of Continuous Scale")
 
 penguins %>% filter(species == "Adelie") %>%
 ggplot(aes(flipper_length_mm, body_mass_g, color = bill_depth_mm)) +
   geom_point( size = 3 ) +
   theme_bw()+
-  scale_colour_pentagon_seq_c() +
-  ggtitle("Example of Continous Scale")
+  scale_colour_pentagon_seq_c(direction = -1) +
+  ggtitle("Example of Continuous Scale Reverse")
 
 ```
+
 

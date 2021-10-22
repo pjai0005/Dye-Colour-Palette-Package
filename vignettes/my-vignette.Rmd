@@ -1,0 +1,60 @@
+---
+title: "my-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(dye)
+library(tidyverse)
+library(ggplot2)
+library(palmerpenguins)
+
+# The vignette gives an overview of your palette, and the colours that are in it
+
+library(unikn)
+seecol("pentagon_colours", col_bg = "#DDD2CC", col_brd = "black")
+```
+
+
+# The vignette shows how the palette can be used with ggplot2 by making a bar chart and a scatter
+plot on the palmerpenguins data.
+
+
+## View the Data
+```{r}
+head(penguins, 10) 
+```
+
+## Colour Discrete
+```{r}
+ggplot(penguins, aes(body_mass_g, flipper_length_mm, color = species)) +
+  geom_point(size = 2.5) +
+  scale_color_pentagon_d()
+```
+
+## Colour Fill
+```{r}
+ggplot(penguins, aes(island, fill = species)) +
+  geom_bar() +
+  scale_fill_pentagon_d()
+```
+
+## Colour Sequential
+```{r}
+ggplot(penguins, aes(body_mass_g, flipper_length_mm, color = body_mass_g)) +
+  geom_point(size = 2.5) +
+  scale_colour_pentagon_seq_c ()
+```
+
+

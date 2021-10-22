@@ -2,9 +2,9 @@
 % Please edit documentation in R/continous-scale1.R
 \name{scale_color_pentagon_seq_c}
 \alias{scale_color_pentagon_seq_c}
-\title{Color Scales for Continous Variables:
+\title{Color Scales for Continuous Variables:
 
-\code{scale_colour_pentagon_seq_c } is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic. It chooses the branded palette and the level of the color scale can be changed using the \param{direction}.}
+\code{scale_colour_pentagon_seq_c }}
 \usage{
 scale_color_pentagon_seq_c(
   name = "Mulberry Wine",
@@ -13,42 +13,49 @@ scale_color_pentagon_seq_c(
   ...
 )
 }
-\arguments{
-\item{name}{a character vector to choose a color from the palette}
-
-\item{amount}{numeric values to set the variation in color between high and low scale}
-}
 \description{
-Color Scales for Continous Variables:
+It is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic of Visualization in R. It chooses the Pentagon Palette which consists of 5 colors:
+\describe{
+\item{Punky Orange}
+\item{Gold Yellow}
+\item{Dusty Green}
+\item{Indigo Blue}
+\item{Mulberry Wine}
 
-\code{scale_colour_pentagon_seq_c } is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic. It chooses the branded palette and the level of the color scale can be changed using the \param{direction}.
 }
-\details{
-Default colours are generated with branded palette. Generally, for continuous colour scales you want to keep hue constant, but vary chroma and luminance.
+The level of the color scale can be changed using the \code{direction}.
 }
-\section{Arguments}{
-NA
-}
-
 \examples{
 
-df <- data.frame(
-x = runif(100),
-y = runif(100),
-z1 = rnorm(100),
-z2 = abs(rnorm(100))
-)
+# Data Used
+dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
+
+# Basic continuous variable
+ggplot(dsamp, aes(price, depth, color = price)) +
+ geom_point( size = 3)+
+  scale_color_pentagon_seq_c() +
+  ggtitle("Example of Continuous Scale")
 
 
+# Basic continuous variable with Different Colour
+ggplot(dsamp, aes(price, depth, color = price)) +
+ geom_point( size = 3)+
+  scale_color_pentagon_seq_c("Indigo Blue") +
+  ggtitle("Example of Continuous Scale with Different Colour")
 
-ggplot(df, aes(x, y)) +
-  geom_point(aes(colour = z1)) +
-    scale_colour_branded_seq_c()
 
-# For coloring the based on continuous variable on a reverse scale
-ggplot(df, aes(x, y)) +
-  geom_point(aes(colour = z1)) +
-    scale_colour_branded_seq_c(direction=-1)
+# Basic continuous variable on a Reverse Scale
+ggplot(dsamp, aes(price, depth, color = price)) +
+ geom_point( size = 3) +
+  scale_colour_pentagon_seq_c(direction = -1) +
+  ggtitle("Example of Continuous Scale Reverse")
+
+
+# Basic continuous variable on a Reverse Scale with Different Colour
+ggplot(dsamp, aes(price, depth, color = price)) +
+ geom_point( size = 3)+
+  scale_colour_pentagon_seq_c("Dusty Green", direction = -1) +
+  ggtitle("Example of Continuous Scale Reverse with Different Colour")
 
 }
 \seealso{

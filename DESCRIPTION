@@ -14,10 +14,14 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
-    ggplot2
-Depends: 
-    tidyverse
+    ggplot2,
+    colorspace
 Suggests: 
     rmarkdown,
-    knitr
+    knitr,
+    palmerpenguins,
+    tidyverse,
+    unikn,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
+Config/testthat/edition: 3

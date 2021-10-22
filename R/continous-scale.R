@@ -1,36 +1,30 @@
-#' @title Color Scales for Continuous Variables:
-
+#' Color Scales for Continuous Variables:
 #'
-#' \code{scale_colour_pentagon_seq_c }
+#' @description
+#' \code{scale_colour_pentagon_seq_c } It is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic of Visualization in R. It chooses the Pentagon Palette which consists of 5 colors. The level of the color scale can be changed using the \code{direction}.
 #'
-#' @description It is a color scales used with ggplot2 for continuous data values mapped on the color aesthetic of Visualization in R. It chooses the Pentagon Palette which consists of 5 colors:
-#' \describe{
-#'   \item{Punky Orange}
-#'   \item{Gold Yellow}
-#'   \item{Dusty Green}
-#'   \item{Indigo Blue}
-#'   \item{Mulberry Wine}
-#'
-#'   }
-#'   The level of the color scale can be changed using the \code{direction}.
-#'
-#' @section Format
+#' @usage
 #' scale_colour_pentagon_seq_c (
-#' ...,
+#' name= "Mulberry Wine",
 #' direction=1,
-#' amount=0.2)
+#' amount=0.6,
+#' ...)
 #'
-#' @details
-#' @param name a character vector to choose a color from the palette. Default value is Mulberry Wine}
-#' @param amount a double vector with which the amount of opacity of the color can be adjusted. Default value is 0.6}
-#' @param direction  a numeric value to set the level of the scale. If direction is < 0 , the palette switches from high and low}
 #'
+#' @param name a character vector to choose a color from the palette. Default value is Mulberry Wine
+#' @param direction  a numeric value to set the level of the scale. If direction is < 0 , the palette switches from high and low
+#' @param amount a double vector with which the amount of opacity of the color can be adjusted. Default value is 0.6
+#' @param ... Other parameters that support the scale_colour_discrete function
+#'
+#' @details Default colour gradients are generated with pentagon palette. Generally, for continuous colour scales you want to keep hue constant, but vary chroma and luminance.
 #'
 #' @seealso \code{\link[ggplot2]{scale_color_gradient}}
 #'
 #' @examples
 #'
 #' # Data Used
+#' library(ggplot2)
+#' library(dye)
 #' dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
 #'
 #' # Basic continuous variable
@@ -75,7 +69,7 @@ scale_colour_pentagon_seq_c <- function(name= "Mulberry Wine",
   # throw an error if it isn't
   {
 
-    stop(paste0("\n The Palette contains 5 colours: \n", names(pentagon_colours), "\n"))
+    stop(paste0("\n The Palette contains:", names(pentagon_colours)))
 
     #return(palette_catalog[[palette]][seq_len(name)])
 

@@ -1,8 +1,11 @@
-#' @title Pentagon Color Palette:
-#'
 #' Pentagon Colours
+#'
+#' @import colorspace
+#'
 #' @examples
-#' pentagon_colours
+#' library(unikn)
+#' seecol("pentagon_colours")
+#'
 #' @rdname pentagon_colours
 #' @export pentagon_colours
 
@@ -14,26 +17,26 @@ pentagon_colours <- list(
   "Indigo Blue" = "#467382",
   "Mulberry Wine" = "#823a74")
 #'
-#' \code{pentagon_palette}
-#' @description uses the custom color palette to be used with ggplot2 to generate the colors for discrete variables with maximum of 5 categories.
-#'  \describe{
-#'   \item{Punky Orange}
-#'   \item{Gold Yellow}
-#'   \item{Dusty Green}
-#'   \item{Indigo Blue}
-#'   \item{Mulberry Wine}
-#'
-#'   }
+#' Pentagon Palette
+#' @description
+#'  \code{pentagon_palette} uses the custom color palette to be used with ggplot2 to generate the colors for discrete variables with maximum of 5 categories.
 #'
 #'
-#' @section Arguments:
-#' @param return will return corresponding hexcode of the colour name to the ggplot.
 #'
-#' @example Default colors are generated using this Pentagon Palette.
-#' pentagon_palette (primary = "Punky Orange", other = "Mulberry Wine", direction = 1)(2).
 #'
-#' @rdname pentagon_palette
+#' @usage
+#' pentagon_palette(
+#' direction = 1,
+#' primary = "Punky Orange",
+#' other = "Mulberry Wine")
 #'
+#' @param primary the baseline color for continuous scale
+#' @param direction a numeric value to set the direction of the color scale. if direction is < 0 the color branded_colors list is reversed.
+#' @param other used when there are two categories in the data.
+#'
+#' @examples
+#' # Default colors are generated using this Pentagon Palette.
+#' pentagon_palette (primary = "Punky Orange", other = "Mulberry Wine", direction = 1)(2)
 #'
 #' @export pentagon_palette
 #'

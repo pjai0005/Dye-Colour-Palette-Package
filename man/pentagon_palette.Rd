@@ -2,29 +2,25 @@
 % Please edit documentation in R/palette.R
 \name{pentagon_palette}
 \alias{pentagon_palette}
-\title{\code{pentagon_palette}}
+\title{Pentagon Palette}
 \usage{
 pentagon_palette(
-  direction = 1,
-  primary = "Punky Orange",
-  other = "Mulberry Wine"
-)
+direction = 1,
+primary = "Punky Orange",
+other = "Mulberry Wine")
 }
 \arguments{
-\item{return}{will return corresponding hexcode of the colour name to the ggplot.}
+\item{direction}{a numeric value to set the direction of the color scale. if direction is < 0 the color branded_colors list is reversed.}
+
+\item{primary}{the baseline color for continuous scale}
+
+\item{other}{used when there are two categories in the data.}
 }
 \description{
-uses the custom color palette to be used with ggplot2 to generate the colors for discrete variables with maximum of 5 categories.
-\describe{
-\item{Punky Orange}
-\item{Gold Yellow}
-\item{Dusty Green}
-\item{Indigo Blue}
-\item{Mulberry Wine}
+\code{pentagon_palette} uses the custom color palette to be used with ggplot2 to generate the colors for discrete variables with maximum of 5 categories.
+}
+\examples{
+# Default colors are generated using this Pentagon Palette.
+pentagon_palette (primary = "Punky Orange", other = "Mulberry Wine", direction = 1)(2)
 
 }
-}
-\section{Arguments}{
-
-}
-
